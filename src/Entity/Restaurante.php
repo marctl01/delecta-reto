@@ -19,7 +19,7 @@ class Restaurante
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $street_address = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 6)]
@@ -34,7 +34,7 @@ class Restaurante
     #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
     private ?string $popularity_rate = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2, nullable: true)]
     private ?string $satisfaction_rate = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
@@ -76,7 +76,7 @@ class Restaurante
         return $this->street_address;
     }
 
-    public function setStreetAddress(string $street_address): static
+    public function setStreetAddress(?string $street_address): static
     {
         $this->street_address = $street_address;
 
@@ -135,11 +135,11 @@ class Restaurante
     {
         return $this->satisfaction_rate;
     }
-
-    public function setSatisfactionRate(string $satisfaction_rate): static
+    
+    public function setSatisfactionRate(?string $satisfaction_rate): static
     {
         $this->satisfaction_rate = $satisfaction_rate;
-
+    
         return $this;
     }
 
